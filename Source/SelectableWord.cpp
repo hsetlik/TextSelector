@@ -52,6 +52,14 @@ void Word::mouseExit(const juce::MouseEvent &e)
     mouseIsOver = false;
     repaint();
 }
+
+void NativeWord::itemDropped(const juce::DragAndDropTarget::SourceDetails &dragSourceDetails)
+{
+    if(auto target = dynamic_cast<Word*>(dragSourceDetails.sourceComponent.get()))
+    {
+        target->linkToWord(this);
+    }
+}
 //==============================================================================
 
 Phrase::Phrase(std::string fullPhrase)
@@ -62,7 +70,6 @@ Phrase::Phrase(std::string fullPhrase)
     {
         addAndMakeVisible(words.add(new Word(w)));
     }
-    setRepaintsOnMouseActivity(true);
 }
 
 void Phrase::resized()
@@ -100,8 +107,8 @@ targetPhrase(nullptr)
 void PhraseScreen::updatePhrases()
 {
     auto phrases = linkedScreen->getEntry();
-    nativePhrase.reset(new Phrase(phrases.first));
-    targetPhrase.reset(new Phrase(phrases.second));
+    nativePhrase.reset(new NativePhrase(phrases.first));
+    targetPhrase.reset(new TargetPhrase(phrases.second));
     
     addAndMakeVisible(&*nativePhrase);
     addAndMakeVisible(&*targetPhrase);

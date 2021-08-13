@@ -17,6 +17,8 @@ TextEntryScreen::TextEntryScreen()
     addAndMakeVisible(&nextButton);
     addAndMakeVisible(&nativeEditor);
     addAndMakeVisible(&targetEditor);
+    nativeEditor.setText("Example native phrase");
+    targetEditor.setText("Example target phrase");
 }
 
 void TextEntryScreen::resized()
