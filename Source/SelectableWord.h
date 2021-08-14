@@ -128,10 +128,26 @@ public:
     void resized() override;
     void updatePhrases();
     void visibilityChanged() override;
-    
     std::unique_ptr<NativePhrase> nativePhrase;
     std::unique_ptr<TargetPhrase> targetPhrase;
     juce::TextButton backButton;
-   
+    void addPair(std::string native, std::string target)
+    {
+        wordPairs.push_back(std::make_pair(native, target));
+    }
+    void removePair(std::string either)
+    {
+        for(auto it = wordPairs.begin(); it != wordPairs.end(); ++it)
+        {
+            auto pair = *it;
+            if(pair.first == either || pair.second == either)
+            {
+                wordPairs.erase(it);
+                return;
+            }
+        }
+    }
+private:
+    std::vector<std::pair<std::string, std::string>> wordPairs; //Organized Native, Target
 };
 

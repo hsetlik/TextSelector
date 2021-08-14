@@ -4,6 +4,10 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="JSRbIg" name="TextSelector">
     <GROUP id="{2774B6A0-3236-271F-0BAA-707182F36077}" name="Source">
+      <FILE id="AeISWK" name="DataStructures.cpp" compile="1" resource="0"
+            file="Source/DataStructures.cpp"/>
+      <FILE id="IAsCWS" name="DataStructures.h" compile="0" resource="0"
+            file="Source/DataStructures.h"/>
       <FILE id="YohVS6" name="StlUtil.cpp" compile="1" resource="0" file="Source/StlUtil.cpp"/>
       <FILE id="RGXZTp" name="StlUtil.h" compile="0" resource="0" file="Source/StlUtil.h"/>
       <FILE id="kNB4b7" name="ComponentUtility.cpp" compile="1" resource="0"
